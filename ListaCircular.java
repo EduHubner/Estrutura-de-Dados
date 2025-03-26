@@ -119,36 +119,24 @@ public class ListaCircular {
 	public void ordenarLista() {
 		Nodo aux = inicio;
 		int troca;
-
-		if (inicio == null) return;
+		boolean sim = true;
+		if (inicio == null || inicio.getProx() == inicio) return;
 		
-		do {
-			if (aux.getDado() > aux.getProx().getDado()) {
-				if (aux == inicio) {
-					inicio = aux.getProx();
-					fim.setProx(inicio);
+		while (sim) {
+			sim = false;
+		
+			while (aux.getProx() != inicio) {
+				if (aux.getDado() > aux.getProx().getDado()) {
+					troca = aux.getDado();
+					aux.setDado(aux.getProx().getDado());
+					aux.getProx().setDado(troca);
+					sim = true;
 				}
-				
-				troca = aux.getDado();
-				aux.setDado(aux.getProx().getDado());
-				aux.getProx().setDado(troca);
-				
-			} else {
 				aux = aux.getProx();
 			}
-			
-			System.out.println(aux.getDado());
-			
-		} while (aux.getDado() > aux.getProx().getDado());
-		
-		return;
-
-		
-
-		
-		
-		
-		
+			aux = inicio;
+		}
+		return;		
 	}
 	
 	

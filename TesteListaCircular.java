@@ -29,7 +29,8 @@ public class TesteListaCircular {
 		
 		lista.ordenarLista();
 		
-		//System.out.println(lista.mostrarLista());
+		System.out.println(lista.mostrarLista());
+		System.out.println(lista.quantNodo());
 	}
 
 
